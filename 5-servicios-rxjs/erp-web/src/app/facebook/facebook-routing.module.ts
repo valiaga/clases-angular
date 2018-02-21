@@ -14,6 +14,10 @@ const routes: Routes = [
       {
         path: 'comments',
         loadChildren: 'app/facebook/comments/comments.module#CommentsModule',
+      },
+      {
+        path: 'comments-rxjs',
+        loadChildren: 'app/facebook/comments-rxjs/comments-rxjs.module#CommentsRxjsModule',
       }
     ]
   },

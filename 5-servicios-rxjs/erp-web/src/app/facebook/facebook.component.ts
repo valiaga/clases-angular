@@ -16,6 +16,9 @@ import { Component, OnInit } from '@angular/core';
       <li class="nav-item">
         <a class="nav-link" routerLink="comments">Comentarios</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="comments-rxjs">Comentarios Rxjs</a>
+      </li>
     </ul>
     <router-outlet></router-outlet>
   `,
