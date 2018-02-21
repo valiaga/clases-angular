@@ -1,3 +1,4 @@
+import { Subscriber } from 'rxjs/Rx';
 import { Component, OnInit } from '@angular/core';
 import { CommentsService } from './shared/comments.service';
 import { Observable } from 'rxjs/Observable';
@@ -12,7 +13,7 @@ import { Comment } from './models/comment';
     ></erp-nuevo>
      <!-- [numberOfComments]="numberOfComments" --> 
     <erp-lista
-      [comments]="comments$ | async" 
+      [comments]="comments$ | pip" 
       (delete)="deleteComment($event)"
     ></erp-lista>
   `,
@@ -20,6 +21,7 @@ import { Comment } from './models/comment';
 })
 export class CommentsRxjsComponent implements OnInit {
   public comments$: Observable<Comment[]>;
+  // public comm: Subscriber;
   constructor(private commentsService: CommentsService) { }
 
   ngOnInit() {
@@ -29,7 +31,12 @@ export class CommentsRxjsComponent implements OnInit {
     // Susbribientdo
     this.comments$.subscribe(c => {
       console.log('c', c)
+      
     });
+  }
+
+  deleteComot(){
+    // this.comm.dess()
   }
 
   public saveComment(comment: Comment) {

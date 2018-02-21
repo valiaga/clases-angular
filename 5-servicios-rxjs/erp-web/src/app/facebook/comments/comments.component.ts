@@ -29,12 +29,12 @@ export class CommentsComponent implements OnInit {
 
   public saveComment(comment: Comment) {
     this.commentsService.saveComment(comment); // Guardo.
-    this.refreshData(); // refresacar
+    this.refreshData(); // refresacar.
   }
 
   public deleteComment(comment: Comment) {
-    this.commentsService.deleteComment(comment);
-    this.refreshData();
+    this.commentsService.deleteComment(comment); // 
+    this.refreshData(); // 
   }
 
   private refreshData() {
