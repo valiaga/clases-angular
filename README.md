@@ -6,3 +6,4 @@ Lista de presentaciones para seguir la capacitación.
 - [1 - Base](http://slides.com/vitmaraliaga)
 - [4 - Servicios ](https://slides.com/vitmaraliaga/empezando-con-angular-5-servicios)
 - [5 - Servicios Rxjs ](https://slides.com/vitmaraliaga)
+- [5 - Dynamic template ](https://slides.com/vitmaraliaga)
