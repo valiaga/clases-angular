@@ -8,6 +8,7 @@ import { NuevoComponent } from './nuevo/nuevo.component';
 import { PostsService } from './shared/posts.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     PostsComponent,
     ListaComponent,
     NuevoComponent,
+    EditComponent,
   ],
   providers: [
     PostsService,
