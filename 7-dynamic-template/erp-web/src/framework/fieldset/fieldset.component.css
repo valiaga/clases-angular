@@ -1,0 +1,11 @@
+    .erp-fieldset-border{
+      border: 1px solid red;
+      padding: 0 1em 1em;
+      box-shadow: 5px 5px 0 red;
+    }
+    .erp-legend-border{
+      font-size: 16px;
+      width: auto;
+      padding: 0 10px;
+      border-bottom: none;
+    }

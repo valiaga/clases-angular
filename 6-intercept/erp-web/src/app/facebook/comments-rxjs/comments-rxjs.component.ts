@@ -27,6 +27,11 @@ export class CommentsRxjsComponent implements OnInit {
   ngOnInit() {
     this.comments$ = this.commentsService.comments;
     
+    
+    // Susbribientdo
+    // this.comments$.subscribe(c => {
+      // console.log('c', c)
+    // });
   }
 
   deleteComot(){
