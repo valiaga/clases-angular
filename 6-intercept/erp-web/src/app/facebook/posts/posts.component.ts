@@ -5,7 +5,10 @@ import { Post } from './models/post';
 @Component({
   selector: 'erp-posts',
   template: `
+    <!--
     <erp-nuevo [setPost]="post" (postSaved)="postSaved($event)"></erp-nuevo>
+    -->
+    <router-outlet></router-outlet>
     <erp-lista (onEdit)="onEdit($event)" (onDelete)="onDelete($event)" [posts]="posts"></erp-lista>
   `,
   styles: []

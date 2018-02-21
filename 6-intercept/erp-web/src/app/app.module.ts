@@ -29,12 +29,12 @@ import { CatchInterceptorService } from './lib/catch-interceptor.service';
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptorService,
+      useClass: CatchInterceptorService,
       multi: true
     },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: CatchInterceptorService,
+      useClass: TokenInterceptorService,
       multi: true
     },
   ],

@@ -1,7 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Output, Component, OnInit, Input, EventEmitter } from '@angular/core';
 import { Post } from '../models/post';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostsService } from '../shared/posts.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -38,22 +40,40 @@ import { PostsService } from '../shared/posts.service';
 export class NuevoComponent implements OnInit {
   public postForm: FormGroup;
   public post: Post;
-  @Output() postSaved = new EventEmitter<Post>();
+  public message: string;
+  // @Output() postSaved = new EventEmitter<Post>();
 
-  @Input()
-  set setPost(post: Post) {
-    this.postForm && this.postForm.patchValue(post);
-  }
+  // @Input()
+  // set setPost(post: Post) {
+  // this.postForm && this.postForm.patchValue(post);
+  // }
 
-  constructor(private formBuilder: FormBuilder, private postsService: PostsService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder, private postsService: PostsService) { }
 
   ngOnInit() {
-    this.crearNuevoPost()
+
+    this.loadPost()
     this.builForm()
   }
 
-  private crearNuevoPost() {
-    this.post = this.postsService.crearPost();
+  private getPostById(id: number) {
+    this.postsService.getPostById(id)
+      .subscribe(this.showPost.bind(this, this.catchError.bind(this)))
+  }
+
+  private showPost(post: Post) {
+    this.post = post;
+  }
+
+  private loadPost() {
+    // const id = this.route.snapshot.params["id"];
+    // if (id) {
+      // this.getPostById(id)
+    // } else {
+      this.post = this.postsService.crearPost();
+    // }
   }
 
   private builForm() {
@@ -72,18 +92,22 @@ export class NuevoComponent implements OnInit {
 
   public resetForm() {
     this.postForm.reset();
-    // this.postForm.patchValue({
-    // userId: [1],
-    // id: [101],
-    // })
   }
 
   public submit() {
     if (confirm('Seguro de guardar?')) {
       this.postsService.savePost(this.postForm.value)
         .subscribe((postSaved: Post) => {
-          this.postSaved.emit(postSaved)
+          // this.postSaved.emit(postSaved)
         })
+    }
+  }
+
+  private catchError(err) {
+    if (err instanceof HttpErrorResponse) {
+      this.message = `Http error: ${err.status}, text: ${err.statusText}`;
+    } else {
+      this.message = `Unknown error, text: ${err.message}`;
     }
   }
 
