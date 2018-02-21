@@ -58,7 +58,8 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
   styles: []
 })
 export class NuevoComponent implements OnInit {
-  @Input() public numberOfComments = 0;
+  // @Input() public numberOfComments = 0;
+  public numberOfComments = 0;
   @Output() public save = new EventEmitter<Comment>();
 
   public listaOfPosts = ["1", "2"];

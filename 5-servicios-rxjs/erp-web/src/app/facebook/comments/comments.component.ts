@@ -28,8 +28,8 @@ export class CommentsComponent implements OnInit {
   }
 
   public saveComment(comment: Comment) {
-    this.commentsService.saveComment(comment);
-    this.refreshData();
+    this.commentsService.saveComment(comment); // Guardo.
+    this.refreshData(); // refresacar
   }
 
   public deleteComment(comment: Comment) {
